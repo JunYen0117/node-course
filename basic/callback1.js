@@ -12,22 +12,15 @@ let doWork = function (job, timer, cb) {
 
 // 刷牙 (3000) -> 吃早餐 (5000) -> 寫功課 (3000)
 
-let work1 = doWork('刷牙', 3000, function (result) {
+doWork('刷牙', 3000, function (result) {
   console.log(result);
+  doWork('吃早餐', 5000, function (result) {
+    console.log(result);
+    doWork('寫功課', 3000, function (result) {
+      console.log(result);
+    });
+
+  });
 });
 
-let work2 = doWork('吃早餐', 5000, function (result) {
-  console.log(result);
-});
 
-let work3 = doWork('寫功課', 3000, function (result) {
-  console.log(result);
-});
-
-if(work1===true){
-  console.log(work2);
-}
-
-if(work2===true){
-  console.log(work3);
-}
